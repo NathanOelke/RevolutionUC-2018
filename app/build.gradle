@@ -19,6 +19,16 @@ android {
 }
 
 dependencies {
+    repositories {
+        maven {
+            url '../myo-android-sdk-0.10.0/myorepository'
+        }
+    }
+
+    compile('com.thalmic:myosdk:0.10.+@aar')
+}
+
+dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
