@@ -36,7 +36,23 @@ public class MainActivity extends AppCompatActivity {
                 roll *= -1;
                 pitch *= -1;
             }
-            System.out.println(roll + ", " + pitch + ", " + yaw);
+            System.out.println("Orientation at t = " + timestamp + ": " + roll + ", " + pitch + ", " + yaw);
+        }
+
+        @Override
+        public void onAccelerometerData(Myo myo, long timestamp, Vector3 accel) {
+            System.out.println("Acceleration at t = " + timestamp + ": " + accel.x() + ", " + accel.y() + ", " + accel.z());
+        }
+
+        @Override
+        public void onGyroscopeData (Myo myo, long timestamp, Vector3 gyro) {
+            System.out.println("Acceleration at t = " + timestamp + ": " + gyro.x() + ", " + gyro.y() + ", " + gyro.z());
+            myo.requestRssi();
+        }
+
+        @Override
+        public void onRssi(Myo myo, long timestamp, int rssi) {
+            System.out.println("RSSI at t = " + timestamp + ": " + rssi);
         }
     };
 
